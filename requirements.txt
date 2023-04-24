@@ -1,9 +1,7 @@
 Flask==2.2.3
 Keras==2.7.0          # Updated to the latest version
 pandas==1.3.5         # Updated to the latest version
-scikit-learn==1.0.2   # Updated to the latest version
 gunicorn==20.1.0      # Added the version number
-tensorflow==2.3.0
-Pillow==8.4.0         # Added the version number
-numpy==1.19.5         # Added the version number
+tensorflow
+numpy
 protobuf==3.20.0      # Updated to a specific version
