@@ -1,6 +1,6 @@
 import pandas as pd
 from flask import Flask, request, render_template
-from tensorflow import keras
+import keras
 from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
