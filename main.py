@@ -52,7 +52,7 @@ def predict():
         # Format the prediction as a string and display it in the HTML
         prediction_str = "The predicted class label is: " + str(predicted_class)
 
-        return render_template('index.html', prediction=prediction_str)
+        return render_template('index.html', prediction=prediction_str,dataframe=user_input_df.head(10).to_html())
     else:
         return render_template('index.html')
 
