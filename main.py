@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 from flask import Flask, request, render_template
 import keras
 from sklearn.preprocessing import StandardScaler
