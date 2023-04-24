@@ -2,3 +2,8 @@ Flask==2.2.3
 keras==2.12.0
 pandas==2.0.1
 scikit_learn==1.2.2
+gunicorn
+tensorflow==2.3.0
+pillow
+numpy
+protobuf==3.20.*
