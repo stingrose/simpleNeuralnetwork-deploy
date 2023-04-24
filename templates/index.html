@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flight Delay Prediction</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+      .container-box {
+        background-color: #111;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 500px;
+        margin-top: 100px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+      }
+      .form-control {
+        background-color: #222;
+        border: 1px solid #ff3333;
+        color: #fff;
+      }
+      .btn-primary {
+        background-color: #ff3333;
+        border-color: #ff3333;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container-box">
+      <h1 class="text-center text-light mb-5">CLASSIFY 0 OR 1 USING NN</h1>
+      <form action="/" method="POST">
+        <div class="form-group">
+          <label for="Feature1" class="text-light">Feature1:</label>
+          <input type="number" class="form-control" name="Feature1">
+        </div>
+        <div class="form-group">
+          <label for="Feature2" class="text-light">Feature2:</label>
+          <input type="number" class="form-control" name="Feature2">
+        </div>
+        <div class="form-group">
+          <label for="Feature3" class="text-light">Feature3:</label>
+          <input type="number" class="form-control" name="Feature3">
+        </div>
+        <div class="form-group">
+          <label for="Feature4" class="text-light">Feature4:</label>
+          <input type="text" class="form-control" name="Feature4">
+        </div>
+        <div class="form-group">
+          <label for="Feature5" class="text-light">Feature5:</label>
+          <input type="text" class="form-control" name="Feature5">
+        </div>
+        <div class="form-group">
+          <label for="Feature6" class="text-light">Feature6:</label>
+          <input type="text" class="form-control" name="Feature6">
+        </div>
+        <div class="form-group">
+          <label for="Feature7" class="text-light">Feature7:</label>
+          <input type="text" class="form-control" name="Feature7">
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
