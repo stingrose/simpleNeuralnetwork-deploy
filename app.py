@@ -1,18 +1,11 @@
-import pickle
 import pandas as pd
-import xgboost as xgb
 from flask import Flask, request, render_template
-import keras
+from tensorflow import keras
 from sklearn.preprocessing import StandardScaler
 
-
-
-
 app = Flask(__name__)
-
-
 # load the model from the h5 file
-model = keras.models.load_model('app/model_part1.h5')
+model = keras.models.load_model('model_part1.h5',compile=False)
 
 @app.route('/', methods=['GET', 'POST'])
 def predict():
@@ -22,8 +15,8 @@ def predict():
 
         user_input_df = pd.read_csv('UpsampledDF.csv')
 
-        new_row = {'f1': input_data['Feature1'], 
-                   'f2': input_data['Feature2'], 
+        new_row = {'f1': input_data['Feature1'],
+                   'f2': input_data['Feature2'],
                    'f3': input_data['Feature3'],
                    'f4': input_data['Feature4'],
                    'f5': input_data['Feature5'],
@@ -32,20 +25,32 @@ def predict():
                    }
 
         user_input_df = user_input_df.append(new_row, ignore_index=True)
-        last_row = user_input_df.iloc[-1]
+        user_input_df=user_input_df.drop(['Unnamed: 0','target'],axis=1)
 
-        X = user_input_df.drop('target', axis=1)
 
         scaler = StandardScaler()
+        numcols=scaler.fit_transform(user_input_df)
+        resdf = pd.DataFrame(numcols, columns=user_input_df.columns)
 
-        numcols=scaler.fit_transform(X)
-
-        resdf = pd.DataFrame(numcols, columns=X.columns)
         tofitrow = resdf.iloc[-1]
 
-        prediction = model.predict(tofitrow)
+        data = tofitrow.values
+
+        reshaped_data = data.reshape((1, 7))
+
+        prediction = model.predict(reshaped_data)
+
+        threshold = 0.5
+
+        if prediction >= threshold:
+            predicted_class = 1
+        else:
+            predicted_class = 0
+
+
         # Format the prediction as a string and display it in the HTML
-        prediction_str = 'The predicted flight delay is {:.2f} minutes.'.format(prediction[0])
+        prediction_str = "The predicted class label is: " + str(predicted_class)
+
         return render_template('result.html', prediction=prediction_str)
     else:
         return render_template('index.html')
