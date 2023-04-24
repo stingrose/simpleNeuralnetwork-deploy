@@ -5,3 +5,4 @@ gunicorn==20.1.0      # Added the version number
 tensorflow
 numpy
 protobuf==3.20.0      # Updated to a specific version
+sklearn
