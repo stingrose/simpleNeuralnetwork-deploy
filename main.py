@@ -49,7 +49,6 @@ def predict():
             predicted_class = 0
 
 
-        # Format the prediction as a string and display it in the HTML
         prediction_str = "The predicted class label is: " + str(predicted_class)
 
         return render_template('index.html', prediction=prediction_str)
